@@ -1,0 +1,14 @@
+/aarch64-linux.xml
+/amd64-linux.xml
+/arm-linux.xml
+/gdb-syscalls.dtd
+/i386-linux.xml
+/mips-n32-linux.xml
+/mips-n64-linux.xml
+/mips-o32-linux.xml
+/ppc-linux.xml
+/ppc64-linux.xml
+/s390-linux.xml
+/s390x-linux.xml
+/sparc-linux.xml
+/sparc64-linux.xml
