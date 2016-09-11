@@ -1,8 +1,12 @@
 VERSION = 3
 PATCHLEVEL = 10
 SUBLEVEL = 49
-EXTRAVERSION =
+EXTRAVERSION = -r1
 NAME = TOSSUG Baby Fish
+
+# Added by SQK
+TOP := $(dir $(lastword $(MAKEFILE_LIST)))
+print-%  : ; @echo $* = $($*)
 
 # *DOCUMENTATION*
 # To see a list of typical targets execute "make help"
@@ -246,8 +250,8 @@ CONFIG_SHELL := $(shell if [ -x "$$BASH" ]; then echo $$BASH; \
 
 HOSTCC       = gcc
 HOSTCXX      = g++
-HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer
-HOSTCXXFLAGS = -O2
+HOSTCFLAGS   = -Wall -Wmissing-prototypes -Wstrict-prototypes -O3 -fomit-frame-pointer
+HOSTCXXFLAGS = -O3
 
 # Decide whether to build built-in, modular, or both.
 # Normally, just do built-in.
@@ -1458,6 +1462,11 @@ endif
 clean := -f $(if $(KBUILD_SRC),$(srctree)/)scripts/Makefile.clean obj
 
 endif	# skip-makefile
+
+# dt image builder
+ifeq "$(TOP)" "./"
+include bootimage.mk
+endif
 
 PHONY += FORCE
 FORCE:
